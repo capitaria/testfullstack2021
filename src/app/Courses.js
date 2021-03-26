@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import Table from '../app/Table'
+import List from '../app/List'
 class Courses extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             _id: '',
             student: '',
             course: '',
             experience: '',
             grade: '',
-            divcontainer: true,
-            divcontainerFilter: true,
+            divcontainerTable: true,
+            divcontainerList: true,
             tasks: []
 
         };
         this.handleChange = this.handleChange.bind(this);
         this.addTask = this.addTask.bind(this);
-        this.handleChangeButton = this.handleChangeButton.bind(this);
+        this.handleChangeButtonTable = this.handleChangeButtonTable.bind(this);
     }
 
     handleChange = (e) => {
@@ -26,9 +27,10 @@ class Courses extends Component {
         });
     }
 
-    handleChangeButton = () => {
-        this.setState({ divcontainer: !this.state.divcontainer });
+    handleChangeButtonTable = () => {
+        this.setState({ divcontainerTable: !this.state.divcontainerTable });
     }
+
     addTask = (e) => {
         let messageError = document.querySelector(".container_task--message p");
         e.target.value == undefined ? messageError.innerHTML = "Por favor, introducir campos o verificar campo notas (solo recibe números)." : "";
@@ -59,8 +61,8 @@ class Courses extends Component {
                 this.setState({ _id: '', student: '', course: '', experience: '', grade: '' });
                 this.fetchTasks();
             });
-            let messageError = document.querySelector(".container_task--message p");
-            data ? messageError.innerHTML = "" : "";
+        let messageError = document.querySelector(".container_task--message p");
+        data ? messageError.innerHTML = "" : "";
     }
 
     addTaskPost = (data) => {
@@ -131,7 +133,7 @@ class Courses extends Component {
     render() {
         return (
             <div className="container_main">
-                { this.state.divcontainer ?
+                { this.state.divcontainerTable  && this.state.divcontainerList ?
                     <div className="container_task">
                         <div className="container_task--form">
                             <form onSubmit={this.addTask} >
@@ -193,15 +195,11 @@ class Courses extends Component {
                     </div>
                     : null}
                 <div className="container_task--button">
-                    <button className="btn--schudule deco-style" onClick={this.handleChangeButton}>
-                        {this.state.divcontainer ? "Agendar alumnos" : "Volver"}
+                    <button className="btn--schudule deco-style" onClick={this.handleChangeButtonTable}>
+                        {this.state.divcontainerTable ? "Agendar alumnos" : "Inicio"}
                     </button>
-                    <button className="btn--schudule deco-style" onClick={this.handleChangeButton}>
-                        {this.state.divcontainer ? "Agendar alumnos" : "Volver"}
-                    </button>
-
                 </div>
-                {!this.state.divcontainer ? <Table/> : null}
+                {!this.state.divcontainerTable ? <Table /> : null}
             </div>
 
         )

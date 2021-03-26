@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Nav from '../app/Nav'
 import Courses from '../app/Courses'
+
 class App extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             divcontainer: true
         }
@@ -15,7 +15,7 @@ class App extends Component {
         return (
             <div>
                 <Nav />
-                <Courses shows={this.state.divcontainer} />
+                <Courses  />
             </div>
         )
     }
