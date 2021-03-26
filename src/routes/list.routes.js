@@ -15,4 +15,26 @@ router.post('/', async (req, res) => {
   res.json({ status: 'esta en data' })
 });
 
+
+
+router.get('/:id', async (req, res) => {
+  const list = await Student.findById(req.params.id);
+  res.json(list);
+});
+
+router.put('/:id', async (req, res) => {
+  const { studentlist, gradelist } = req.body;
+  const newStudent = {
+    studentlist,
+    gradelist
+  };
+  await Student.findByIdAndUpdate(req.params.id, newStudent);
+  res.json({ status: 'Task Updated' });
+});
+
+router.delete('/:id', async (req, res) => {
+  await Student.findByIdAndRemove(req.params.id);
+  res.json({ status: 'Task Deleted' });
+})
+
 module.exports = router;

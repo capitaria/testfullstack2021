@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Table from '../app/Table'
-import List from '../app/List'
 class Courses extends Component {
     constructor() {
         super();
@@ -11,7 +10,6 @@ class Courses extends Component {
             experience: '',
             grade: '',
             divcontainerTable: true,
-            divcontainerList: true,
             tasks: []
 
         };
@@ -89,7 +87,7 @@ class Courses extends Component {
             .catch(err => console.error(err));
     }
     deleteTask = (id) => {
-        if (confirm('Are you sure you want to delete it?')) {
+        if (confirm('Estas seguro de eliminar esto?')) {
             fetch(`/api/tasks/${id}`, {
                 method: 'DELETE',
                 headers: {
@@ -133,7 +131,7 @@ class Courses extends Component {
     render() {
         return (
             <div className="container_main">
-                { this.state.divcontainerTable  && this.state.divcontainerList ?
+                { this.state.divcontainerTable ?
                     <div className="container_task">
                         <div className="container_task--form">
                             <form onSubmit={this.addTask} >
