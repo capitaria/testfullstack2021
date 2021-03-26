@@ -6,27 +6,41 @@ class List extends Component {
       _id: '',
       studentlist: '',
       gradelist: '',
+      divcontainerTable: true,
       lists: []
 
     };
     this.handleChangeButtonSort = this.handleChangeButtonSort.bind(this);
   }
+  handleChangeButtonSort = () => {
+    let sortGrade;
+    if (this.state.divcontainerTable) {
+      sortGrade = this.state.lists.sort(function (a, b) {
+        return a.gradelist - b.gradelist
+      })
+    } else {
+      sortGrade = this.state.lists.sort(function (a, b) {
+        return b.gradelist - a.gradelist
+      })
+    }
+
+    this.setState({
+      lists: sortGrade,
+      divcontainerTable: !this.state.divcontainerTable
+    });
+  }
   componentDidMount() {
     this.fetchLists();
-  }
-
-  handleChangeButtonSort = () => {
-    const sortGrade = this.state.lists.sort(function (a, b) {
-      return a.gradelist - b.gradelist 
-    })
-     this.setState({ lists: sortGrade });
   }
 
   fetchLists = () => {
     fetch('/api/list')
       .then(res => res.json())
       .then(data => {
-        this.setState({ lists: data });
+        this.setState({
+          lists: data
+        });
+
       })
       .catch(err => console.error(err));
   }
@@ -58,8 +72,8 @@ class List extends Component {
         </div>
         <div>
           <button onClick={this.handleChangeButtonSort}>
-            Filtrar
-              </button>
+            {this.state.divcontainerTable ? "Menor nota" : "Mayor nota"}
+          </button>
         </div>
       </div>
     )
