@@ -8,21 +8,25 @@ class List extends Component {
       courselist: '',
       gradelist: '',
       div_containerButton: true,
-      lists: []
+      div_containerResult: true,
+      lists: [],
+      showlist: []
 
     };
     this.handleChangeButtonSort = this.handleChangeButtonSort.bind(this);
     this.sortGradeList = this.sortGradeList.bind(this);
+    this.showGradeList = this.showGradeList.bind(this);
   }
 
   handleChangeButtonSort = () => {
-    let sortList= this.sortGradeList();
+    let sortList = this.sortGradeList();
     this.setState({
       lists: sortList,
       div_containerButton: !this.state.div_containerButton
     });
-  }
 
+    this.showGradeList(sortList);
+  }
 
   sortGradeList = () => {
     let sortGrade;
@@ -37,6 +41,30 @@ class List extends Component {
     }
     return sortGrade;
   }
+
+  showGradeList = (sortLists) => {
+    let showlist;
+    if (this.state.div_containerButton) {
+      showlist = sortLists.reduce(
+        (a, b) =>
+          a.gradelist < b.gradelist
+            ? a
+            : b
+      )
+    } else {
+      showlist = sortLists.reduce(
+        (a, b) =>
+          a.gradelist > b.gradelist
+            ? a
+            : b
+      )
+    }
+    this.setState({
+      showlist,
+      div_containerResult: !this.state.div_containerResult
+    });
+  }
+
 
   componentDidMount() {
     this.fetchLists();
@@ -85,6 +113,15 @@ class List extends Component {
             {this.state.div_containerButton ? "Menor nota" : "Mayor nota"}
           </button>
         </div>
+        {
+        this.state.showlist.length == undefined ? 
+          <div className="">
+            <h3>Resultados</h3>
+            <p>Estudiante: {this.state.showlist.studentlist}</p>
+            <p>Curso: {this.state.showlist.courselist}</p>
+            <p>Nota: {this.state.showlist.gradelist}</p>
+          </div>
+        : null}
       </div>
     )
   }
