@@ -4,9 +4,9 @@ class List extends Component {
 		super();
 		this.state = {
 			_id: '',
-			studentlist: '',
-			courselist: '',
-			gradelist: '',
+			student: '',
+			course: '',
+			grade: '',
 			div_containerButton: true,
 			lists: [],
 			showlist: []
@@ -31,11 +31,11 @@ class List extends Component {
 		let sortGrade;
 		if (this.state.div_containerButton) {
 			sortGrade = this.state.lists.sort(function (a, b) {
-				return a.gradelist - b.gradelist
+				return a.grade - b.grade
 			})
 		} else {
 			sortGrade = this.state.lists.sort(function (a, b) {
-				return b.gradelist - a.gradelist
+				return b.grade - a.grade
 			})
 		}
 		return sortGrade;
@@ -46,14 +46,14 @@ class List extends Component {
 		if (this.state.div_containerButton) {
 			showlist = sortLists.reduce(
 				(a, b) =>
-					a.gradelist < b.gradelist
+					a.grade < b.grade
 						? a
 						: b
 			)
 		} else {
 			showlist = sortLists.reduce(
 				(a, b) =>
-					a.gradelist > b.gradelist
+					a.grade> b.grade
 						? a
 						: b
 			)
@@ -68,7 +68,7 @@ class List extends Component {
 	}
 
 	fetchLists = () => {
-		fetch('/api/list')
+		fetch('/api/tasks')
 			.then(res => res.json())
 			.then(data => {
 				this.setState({
@@ -95,9 +95,9 @@ class List extends Component {
 								this.state.lists.map(list => {
 									return (
 										<tr key={list._id}>
-											<td>{list.studentlist}</td>
-											<td>{list.courselist}</td>
-											<td>{list.gradelist}</td>
+											<td>{list.student}</td>
+											<td>{list.course}</td>
+											<td>{list.grade}</td>
 										</tr>
 									)
 								})
@@ -114,9 +114,9 @@ class List extends Component {
 					this.state.showlist.length == undefined ?
 						<div className="">
 							<h3>Resultados</h3>
-							<p>Estudiante: {this.state.showlist.studentlist}</p>
-							<p>Curso: {this.state.showlist.courselist}</p>
-							<p>Nota: {this.state.showlist.gradelist}</p>
+							<p>Estudiante: {this.state.showlist.student}</p>
+							<p>Curso: {this.state.showlist.course}</p>
+							<p>Nota: {this.state.showlist.grade}</p>
 						</div>
 						: null}
 			</div>
