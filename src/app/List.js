@@ -8,7 +8,6 @@ class List extends Component {
       courselist: '',
       gradelist: '',
       div_containerButton: true,
-      div_containerResult: true,
       lists: [],
       showlist: []
 
@@ -60,8 +59,7 @@ class List extends Component {
       )
     }
     this.setState({
-      showlist,
-      div_containerResult: !this.state.div_containerResult
+      showlist
     });
   }
 
