@@ -73,8 +73,8 @@ class List extends Component {
             </tbody>
           </table>
         </div>
-        <div>
-          <button onClick={this.handleChangeButtonSort}>
+        <div className="container_button--gradelist">
+          <button className="button--gradelist deco-style" onClick={this.handleChangeButtonSort}>
             {this.state.div_containerButton ? "Menor nota" : "Mayor nota"}
           </button>
         </div>

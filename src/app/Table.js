@@ -88,7 +88,7 @@ class Table extends Component {
         return (
             <div>
                 <div className="container_task--button">
-                    <button className="btn--schudule deco-style" onClick={this.handleChangeButtonList}>
+                    <button className="button--schedule deco-style" onClick={this.handleChangeButtonList}>
                         {this.state.div_containerList ? "ver notas" : "agendar alumnos"}
                     </button>
                 </div>

@@ -89,7 +89,6 @@ body {
 }
 
 .container_main {
-  margin-top: 3rem;
   padding: 3rem;
 }
 
@@ -121,7 +120,7 @@ body {
 .container_task--form button,
 .button_icon--trash,
 .button_icon--edit,
-.btn--schudule {
+.button--schedule,.button--gradelist {
   background-color: #184059;
   border-color: #184059;
   display: inline-block;
@@ -147,6 +146,11 @@ body {
   margin: 3rem 0rem;
   justify-content: space-around;
   display: flex
+}
+
+.container_button--gradelist{
+margin:2rem;
+text-align: end;
 }
 
 /* Table */

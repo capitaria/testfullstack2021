@@ -198,7 +198,7 @@ class Courses extends Component {
                     </div>
                     : null}
                 <div className="container_task--button">
-                    <button className="btn--schudule deco-style" onClick={this.handleChangeButtonTable}>
+                    <button className="button--schedule deco-style" onClick={this.handleChangeButtonTable}>
                         {this.state.div_containerForm ? "Agendar alumnos" : "Inicio"}
                     </button>
                 </div>
