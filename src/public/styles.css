@@ -44,17 +44,17 @@ body {
   font-size: 1rem;
 }
 
-table {
+/* table {
   border-collapse: separate;
   border-spacing: 5px;
   color: #fff;
-}
+} */
 
-td,
-th {
+/* td,
+/* th {
   background: #fff;
   color: #000;
-}
+} */
 
 .mr {
   margin-left: 1em;
@@ -64,7 +64,7 @@ th {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #0FA697;
+  background-color: #8C2F1B;
 }
 
 .nav_main--central {
@@ -122,8 +122,8 @@ th {
 .button_icon--trash,
 .button_icon--edit,
 .btn--schudule {
-  background-color: #0FA697;
-  border-color: #0FA697;
+  background-color: #184059;
+  border-color: #184059;
   display: inline-block;
   line-height: 1.5;
   text-align: center;
@@ -139,10 +139,39 @@ th {
   flex-direction: column;
 }
 
+.container_task--form h4 {
+  margin: 0rem 0rem 1rem;
+  text-align: center;
+}
 .container_task--button {
   margin: 3rem 0rem;
   justify-content: space-around;
   display: flex
+}
+
+/* Table */
+
+table {
+  width: 100%;
+  text-align: center;
+  background-color :white;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+thead {
+  border-bottom: solid 5px #F2C53D;
+  background-color: #184059;
+  color: white;
+}
+
+tr:nth-child(even) {
+  color: #F2C53D;
+  background: #184059;
 }
 
 
@@ -648,7 +677,7 @@ th {
 .week__week--day {
   border: 1px solid rgb(218, 211, 211);
   padding: 0.3rem;
-  margin: 0.2rem;
+  margin: 0rem 0.2rem;
 }
 
 .week__week-header {
@@ -661,7 +690,7 @@ th {
   text-align: start;
   border: 1px solid #cac5c5;
   padding: 0.3rem;
-  margin: 0.2rem;
+  margin: 0rem 0.2rem;
 }
 
 i.fas.fa-plus-circle {

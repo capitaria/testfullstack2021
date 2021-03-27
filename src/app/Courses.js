@@ -134,13 +134,13 @@ class Courses extends Component {
                 { this.state.div_containerForm ?
                     <div className="container_task">
                         <div className="container_task--form">
-                        <h4>Formulario de estudiantes</h4>
+                        <h4>Formulario de notas</h4>
                             <form onSubmit={this.addTask} >
                                 <div className="container_task--student">
-                                    <input name="student" autoComplete="off" onChange={this.handleChange} value={this.state.student} type="text" placeholder="Alumno" />
+                                    <input name="student" autoComplete="off" onChange={this.handleChange} value={this.state.student} type="text" placeholder="Alumno " />
                                 </div>
                                 <div className="container_task--course">
-                                    <input name="course" autoComplete="off" onChange={this.handleChange} value={this.state.course} type="text" placeholder="Curso" />
+                                    <input name="course" autoComplete="off" onChange={this.handleChange} value={this.state.course} type="text" placeholder="Curso " />
                                 </div>
 
                                 <div className="container_task--experience">
@@ -165,6 +165,8 @@ class Courses extends Component {
                                         <th>Curso</th>
                                         <th>Prueba</th>
                                         <th>Nota</th>
+                                        <th>Editar</th> 
+                                        <th>Eliminar</th>                                       
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -180,6 +182,8 @@ class Courses extends Component {
                                                         <button onClick={() => this.deleteTask(task._id)} className="button_icon--trash deco-style mr">
                                                             <i className="far fa-trash-alt"></i>
                                                         </button>
+                                                    </td>
+                                                    <td>
                                                         <button onClick={() => this.editTask(task._id)} className="button_icon--edit deco-style mr">
                                                             <i className="fas fa-edit"></i>
                                                         </button>
