@@ -84,7 +84,6 @@ class Table extends Component {
             return keyWeek;
         })
 
-
         return (
             <div>
                 <div className="container_task--button">

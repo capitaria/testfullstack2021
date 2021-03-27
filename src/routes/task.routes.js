@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Task  = require('../models/task');
+const Task = require('../models/task');
 
 router.get('/', async (req, res) => {
   const tasks = await Task.find();
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  const { student,course,experience, grade } = req.body;
+  const { student, course, experience, grade } = req.body;
   const newTask = {
     student,
     course,
