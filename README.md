@@ -6,10 +6,10 @@ Esta idea nace de la necesidad de llevar un control de los alumnos registrados e
 
 Esta creado con las tecnologias MERN: 
 
-Mongodb : Base de datos
-Express:  Framework del lado de servidor 
-React: Framework Front-End
-Node.js: Entorno de ejecución
+- Mongodb : Base de datos
+- Express:  Framework del lado de servidor 
+- React: Framework Front-End
+- Node.js: Entorno de ejecución
 
 **Instalación :**
 Pasos para el proyecto : 
