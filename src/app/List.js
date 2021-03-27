@@ -5,8 +5,9 @@ class List extends Component {
     this.state = {
       _id: '',
       studentlist: '',
+      courselist:'',
       gradelist: '',
-      divcontainerTable: true,
+      div_containerButton: true,
       lists: []
 
     };
@@ -14,7 +15,7 @@ class List extends Component {
   }
   handleChangeButtonSort = () => {
     let sortGrade;
-    if (this.state.divcontainerTable) {
+    if (this.state.div_containerButton) {
       sortGrade = this.state.lists.sort(function (a, b) {
         return a.gradelist - b.gradelist
       })
@@ -26,7 +27,7 @@ class List extends Component {
 
     this.setState({
       lists: sortGrade,
-      divcontainerTable: !this.state.divcontainerTable
+      div_containerButton: !this.state.div_containerButton
     });
   }
   componentDidMount() {
@@ -59,9 +60,11 @@ class List extends Component {
             <tbody>
               {
                 this.state.lists.map(list => {
+                  console.log(list)
                   return (
                     <tr key={list._id}>
                       <td>{list.studentlist}</td>
+                      <td>{list.courselist}</td>
                       <td>{list.gradelist}</td>
                     </tr>
                   )
@@ -72,7 +75,7 @@ class List extends Component {
         </div>
         <div>
           <button onClick={this.handleChangeButtonSort}>
-            {this.state.divcontainerTable ? "Menor nota" : "Mayor nota"}
+            {this.state.div_containerButton ? "Menor nota" : "Mayor nota"}
           </button>
         </div>
       </div>

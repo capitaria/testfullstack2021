@@ -9,7 +9,7 @@ class Courses extends Component {
             course: '',
             experience: '',
             grade: '',
-            divcontainerTable: true,
+            div_containerForm: true,
             tasks: []
 
         };
@@ -26,7 +26,7 @@ class Courses extends Component {
     }
 
     handleChangeButtonTable = () => {
-        this.setState({ divcontainerTable: !this.state.divcontainerTable });
+        this.setState({ div_containerForm: !this.state.div_containerForm });
     }
 
     addTask = (e) => {
@@ -131,22 +131,23 @@ class Courses extends Component {
     render() {
         return (
             <div className="container_main">
-                { this.state.divcontainerTable ?
+                { this.state.div_containerForm ?
                     <div className="container_task">
                         <div className="container_task--form">
+                        <h4>Formulario de estudiantes</h4>
                             <form onSubmit={this.addTask} >
                                 <div className="container_task--student">
-                                    <input name="student" autoComplete="off" onChange={this.handleChange} value={this.state.student} type="text" placeholder="Alumno" autoFocus />
+                                    <input name="student" autoComplete="off" onChange={this.handleChange} value={this.state.student} type="text" placeholder="Alumno" />
                                 </div>
                                 <div className="container_task--course">
-                                    <input name="course" autoComplete="off" onChange={this.handleChange} value={this.state.course} type="text" placeholder="Curso" autoFocus />
+                                    <input name="course" autoComplete="off" onChange={this.handleChange} value={this.state.course} type="text" placeholder="Curso" />
                                 </div>
 
                                 <div className="container_task--experience">
-                                    <input name="experience" autoComplete="off" onChange={this.handleChange} value={this.state.experience} type="text" placeholder="Prueba" autoFocus />
+                                    <input name="experience" autoComplete="off" onChange={this.handleChange} value={this.state.experience} type="text" placeholder="Prueba" />
                                 </div>
                                 <div className="container_task--grade">
-                                    <input name="grade" autoComplete="off" onChange={this.handleChange} value={this.state.grade} type="text" placeholder="Nota" autoFocus />
+                                    <input name="grade" autoComplete="off" onChange={this.handleChange} value={this.state.grade} type="text" placeholder="Nota" />
                                 </div>
                                 <div className="container_task--message">
                                     <p></p>
@@ -194,10 +195,10 @@ class Courses extends Component {
                     : null}
                 <div className="container_task--button">
                     <button className="btn--schudule deco-style" onClick={this.handleChangeButtonTable}>
-                        {this.state.divcontainerTable ? "Agendar alumnos" : "Inicio"}
+                        {this.state.div_containerForm ? "Agendar alumnos" : "Inicio"}
                     </button>
                 </div>
-                {!this.state.divcontainerTable ? <Table /> : null}
+                {!this.state.div_containerForm ? <Table /> : null}
             </div>
 
         )

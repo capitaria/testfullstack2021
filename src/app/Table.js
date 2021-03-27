@@ -4,13 +4,13 @@ class Table extends Component {
     constructor() {
         super();
         this.state = {
-            divcontainerList: true,
+            div_containerList: true,
         };
         this.handleChangeButtonList = this.handleChangeButtonList.bind(this);
     }
 
     handleChangeButtonList = () => {
-        this.setState({ divcontainerList: !this.state.divcontainerList });
+        this.setState({ div_containerList: !this.state.div_containerList });
     }
     render() {
         let dataDiv = [10, 11, 12, 13, 14, 15, 16, 17,
@@ -89,10 +89,10 @@ class Table extends Component {
             <div>
                 <div className="container_task--button">
                     <button className="btn--schudule deco-style" onClick={this.handleChangeButtonList}>
-                        {this.state.divcontainerList ? "ver notas" : "agendar alumnos"}
+                        {this.state.div_containerList ? "ver notas" : "agendar alumnos"}
                     </button>
                 </div>
-                {this.state.divcontainerList ?
+                {this.state.div_containerList ?
                     <div className="week">
                         <div className="horastart week__week-header">
                             <i className="fas fa-angle-double-left"></i>
@@ -134,7 +134,7 @@ class Table extends Component {
                         })}
                     </div>
                     : null}
-                {!this.state.divcontainerList ? <List /> : null}
+                {!this.state.div_containerList ? <List /> : null}
             </div>
         )
     }
