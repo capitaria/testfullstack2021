@@ -204,7 +204,6 @@ class Courses extends Component {
                 </div>
                 {!this.state.div_containerForm ? <Table /> : null}
             </div>
-
         )
     }
 }

@@ -5,15 +5,26 @@ class List extends Component {
     this.state = {
       _id: '',
       studentlist: '',
-      courselist:'',
+      courselist: '',
       gradelist: '',
       div_containerButton: true,
       lists: []
 
     };
     this.handleChangeButtonSort = this.handleChangeButtonSort.bind(this);
+    this.sortGradeList = this.sortGradeList.bind(this);
   }
+
   handleChangeButtonSort = () => {
+    let sortList= this.sortGradeList();
+    this.setState({
+      lists: sortList,
+      div_containerButton: !this.state.div_containerButton
+    });
+  }
+
+
+  sortGradeList = () => {
     let sortGrade;
     if (this.state.div_containerButton) {
       sortGrade = this.state.lists.sort(function (a, b) {
@@ -24,12 +35,9 @@ class List extends Component {
         return b.gradelist - a.gradelist
       })
     }
-
-    this.setState({
-      lists: sortGrade,
-      div_containerButton: !this.state.div_containerButton
-    });
+    return sortGrade;
   }
+
   componentDidMount() {
     this.fetchLists();
   }
@@ -60,7 +68,6 @@ class List extends Component {
             <tbody>
               {
                 this.state.lists.map(list => {
-                  console.log(list)
                   return (
                     <tr key={list._id}>
                       <td>{list.studentlist}</td>
