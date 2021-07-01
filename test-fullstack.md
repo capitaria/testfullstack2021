@@ -58,7 +58,7 @@ Si usted estuviera resolviendo el problema del colegio implementando una aplicac
 2. Listar a los alumnos junto a su promedio de notas.
 3. Filtar a todos los alumnos con más de un ramo con promedio rojo.
 
-Para la implementación debe usar Node.js y React.js
+Puedes usar el lenguaje de tu preferencia. 
 
 **Nota:** La aplicación debe incluir un archivo README.md explicando como instalar las dependencias del proyecto y todos los supuestos considerados.
 
@@ -103,7 +103,8 @@ parámetro, permita renderear una agenda semanal en html y con bloques de
 }
 ```
 
-![Calendar](https://www.dropbox.com/s/1x3uq95cqysxp8t/calendar.png?raw=1)
+![Calendar](https://user-images.githubusercontent.com/1144473/124043631-66289b80-d9d9-11eb-9cf1-b9e1ebbcb103.png)
+
 
 La agenda debe contener los distintos bloques y pintar con el nombre del
 paciente, las horas que están tomadas.
@@ -113,3 +114,10 @@ paciente, las horas que están tomadas.
 * La agenda NO debe tener interacción solo dibujarse en la pantalla
 * No utilizar tablas, sólo DIVS
 * La agenda debe tener un ancho de 960px y esta centrada en la pantalla
+
+
+# Consideraciones de la prueba
+
+* Se valora el uso de Git.
+* Se debe enviar repositorio con el proyecto.
+* dudas y consultas a traves de Getonboard
