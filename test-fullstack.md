@@ -114,6 +114,7 @@ paciente, las horas que están tomadas.
 * La agenda NO debe tener interacción solo dibujarse en la pantalla
 * No utilizar tablas, sólo DIVS
 * La agenda debe tener un ancho de 960px y esta centrada en la pantalla
+* Puntos extras usar CSS3 sin librerias externas
 
 
 # Consideraciones de la prueba
